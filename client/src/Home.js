@@ -1,10 +1,10 @@
 import React from 'react';
-import { Box, Button, Heading, HStack, VStack, Text } from '@chakra-ui/react';
+import { Box, Button, Image, HStack, VStack, Text } from '@chakra-ui/react';
 import { IoPersonCircle, IoCarSport, IoLockClosed } from 'react-icons/io5'; // Importing icons from react-icons
 import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
 import Background from './Assets/background.jpg'; // Background image
-
+import logo from './Assets/Logo.jpg'
 const fadeIn = keyframes`
   from {
     opacity: 0;
@@ -18,7 +18,7 @@ const Home = () => {
   return (
     <Container>
       <NavBar>
-        <LogoImage>Logo</LogoImage>
+        <LogoImage src={logo} alt="Logo"/>
         <NavLinks>
           <LinkButton as={Link} to="/adminlogin" leftIcon={<IoLockClosed />} colorScheme="blue">
             Admin Login
@@ -67,11 +67,11 @@ const NavBar = styled(HStack)`
   }
 `;
 
-const LogoImage = styled(Text)`
-  height: 40px; // Adjust height for smaller size
-  color: black;
-  padding: 5px; // Adjust padding for smaller size
-  font-size: 1.5rem; // Logo font size
+const LogoImage = styled(Image)`
+  height: 65px; // Adjust height for smaller size
+  
+  padding: 10px; // Adjust padding for smaller size
+  border-radius:50%;
 `;
 
 const NavLinks = styled(HStack)`
