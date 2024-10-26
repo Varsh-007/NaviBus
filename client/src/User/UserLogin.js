@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Button, FormControl, FormLabel, Input, VStack, Heading, useToast, Text, Link as ChakraLink, ChakraProvider } from '@chakra-ui/react';
-import { Link, useNavigate } from 'react-router-dom'; // Import Link from React Router
+import { Link, useNavigate } from 'react-router-dom';
 import Api from '../Api/Api'; // Assuming Api is set up for axios requests
 
 const UserLogin = () => {
@@ -72,57 +72,69 @@ const UserLogin = () => {
   return (
     <ChakraProvider>
       <Box
-        width="100%"
-        maxWidth="400px"
-        mx="auto"
-        mt="10"
-        p="8"
-        borderRadius="md"
-        boxShadow="lg"
-        bg="white"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        height="100vh"
+        background="linear-gradient(135deg, #0070f3 0%, #0051a2 100%)"
       >
-        <Heading mb={6} textAlign="center">User Login</Heading>
-        <form onSubmit={handleSubmit}>
-          <VStack spacing={4}>
-            <FormControl id="email" isRequired>
-              <FormLabel>Email Address</FormLabel>
-              <Input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your college email"
-              />
-            </FormControl>
+        <Box
+          width="100%"
+          maxWidth="400px"
+          p="8"
+          borderRadius="lg"
+          boxShadow="lg"
+          color="white"
+          bg="rgba(255, 255, 255, 0.15)"
+          backdropFilter="blur(10px)"
+          border="1px solid rgba(255, 255, 255, 0.2)"
+        >
+          <Heading mb={6} textAlign="center">User Login</Heading>
+          <form onSubmit={handleSubmit}>
+            <VStack spacing={4}>
+              <FormControl id="email" isRequired>
+                <FormLabel>Email Address</FormLabel>
+                <Input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your college email"
+                  bg="rgba(255, 255, 255, 0.8)"
+                  color="black"
+                />
+              </FormControl>
 
-            <FormControl id="password" isRequired>
-              <FormLabel>Password</FormLabel>
-              <Input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Enter your password"
-              />
-            </FormControl>
+              <FormControl id="password" isRequired>
+                <FormLabel>Password</FormLabel>
+                <Input
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Enter your password"
+                  bg="rgba(255, 255, 255, 0.8)"
+                  color="black"
+                />
+              </FormControl>
 
-            <Button colorScheme="blue" type="submit" width="full">
-              Login
-            </Button>
-          </VStack>
-        </form>
+              <Button colorScheme="whiteAlpha" type="submit" width="full">
+                Login
+              </Button>
+            </VStack>
+          </form>
 
-        {/* Add the register link here */}
-        <Text mt={4} textAlign="center">
-          Don't have an account?{' '}
-          <ChakraLink as={Link} to="/userregister" color="blue.500">
-            Register here
-          </ChakraLink>
-        </Text>
-        <Text mt={4} textAlign="center">
-          
-          <ChakraLink as={Link} to="/forgotpassword" color="blue.500">
-          ForgotPassword
-          </ChakraLink>
-        </Text>
+          {/* Register and Forgot Password Links */}
+          <Text mt={4} textAlign="center">
+            Don't have an account?{' '}
+            <ChakraLink as={Link} to="/userregister" color="whiteAlpha">
+              Register here
+            </ChakraLink>
+          </Text>
+          <Text mt={4} textAlign="center">
+            <ChakraLink as={Link} to="/forgotpassword" color="white">
+              Forgot Password?
+            </ChakraLink>
+          </Text>
+        </Box>
       </Box>
     </ChakraProvider>
   );

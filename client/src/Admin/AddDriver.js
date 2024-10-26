@@ -106,7 +106,7 @@ const AddDriver = () => {
 
   return (
     <ChakraProvider>
-      <Box p={6} position="relative">
+      <Box p={6} position="relative" background="#091057" color="white">
         <Flex justifyContent="space-between" mb={6}>
           <Input
             placeholder="Search Drivers"
