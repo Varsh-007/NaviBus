@@ -17,7 +17,7 @@ mongoose.connect(MONGODB_URL)
   });
 
 
-//Admin Create
+
 // Middleware
 app.use(cors());
 app.use(express.json());
